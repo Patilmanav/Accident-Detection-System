@@ -1,0 +1,30 @@
+<Accident>:
+
+    BoxLayout:
+        orientation: 'vertical'
+            
+        RelativeLayout:
+            MDLabel:
+                text: "Detecting..."
+                halign: "center"
+                pos_hint: {'center_x': .5,'center_y': .9}
+                theme_text_color: "Custom"
+                text_color: "green"  # Green text color
+                # md_bg_color: 1, 0, 0, 1  # Red background color
+                # size_hint: root.width , 0.1
+
+            Image:
+                source: 'img//Accident.jpg'
+
+                # Giving the size of image
+                size_hint_x: 1
+                pos_hint: {'center_x': .5,'center_y': .6}
+                # allow stretching of image 
+                # allow_stretch: True
+
+            MDRaisedButton:
+                id: accbtn
+                text: "Stop Detecting"
+                pos_hint: {'center_x': .5,'center_y': .2}
+                size_hint: 0.2,0.2
+                on_release: root.stop_detecting()

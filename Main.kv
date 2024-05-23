@@ -1,0 +1,81 @@
+#: import SlideTransition kivy.uix.screenmanager.SlideTransition
+#: import NoTransition kivy.uix.screenmanager.NoTransition
+
+<DrawerClickableItem@MDNavigationDrawerItem>
+    focus_color: "#e7e4c0"
+    text_color: "#4a4939"
+    icon_color: "#4a4939"
+    ripple_color: "#c5bdd2"
+    selected_color: "#0c6c4d"
+ 
+
+<DrawerLabelItem@MDNavigationDrawerItem>
+    text_color: "#4a4939"
+    icon_color: "#4a4939"
+    focus_behavior: False
+    selected_color: "#4a4939"
+    _no_ripple_effect: True
+
+<Main>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDNavigationLayout:
+
+            MDScreenManager:
+                id: Screen_manager
+
+                MDScreen:
+                    name: "MainScreen"
+                    MDTopAppBar:
+                    
+                        title: "Accident Detector"
+                        elevation: 4
+                        pos_hint: {"top": 1}
+                        md_bg_color: "#e7e4c0"
+                        specific_text_color: "#4a4939"
+                        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+
+                    FloatLayout:
+                        MDRaisedButton:
+                            id: btn1
+                            text: "Turn On"
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            size_hint: .5, .3
+                            on_press: root.CheckAccident()
+
+            
+                Screen1:
+                Login:
+              
+            
+
+            MDNavigationDrawer:
+                
+                id: nav_drawer
+                radius: (0, 16, 16, 0)
+
+                MDNavigationDrawerMenu:
+                    
+
+                    MDNavigationDrawerHeader:
+                        id: nav_header
+                        title: "Header title"
+                        title_color: "#4a4939"
+                        text: "Header text"
+                        spacing: "4dp"
+                        padding: "12dp", 0, 0, "56dp"
+
+
+                    DrawerClickableItem:
+                        icon: "logout"
+                        right_text: "+99"
+                        text_right_color: "#4a4939"
+                        text: "Log Out"
+                        on_release: root.logout()
+                        
+
+                    DrawerClickableItem:
+                        icon: "account-multiple"
+                        text: "Emergency Contacts"
+                        on_press: root.Contacts()

@@ -1,0 +1,35 @@
+<Login>:
+    # md_bg_color: [.5, .5, .5, 1]
+    name: "LoginScreen"
+    FloatLayout:
+            
+        MDLabel:
+            id: label_one
+            text: "LOGIN PAGE"
+            font_style: 'H4'
+            halign: 'center'
+            pos_hint: {'center_y': .89}
+
+        MDLabel:
+            id: label_two
+            text: "Enter Your Phone No."
+            halign: 'center'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+
+
+        MDTextField:
+            id: data
+            text: ""
+            hint_text: "Phone Number"
+            helper_text: "Enter Correct Number..."
+
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            size_hint_x: 0.5
+
+        MDRoundFlatButton:
+            id: change_screen
+            text: 'Login'
+            # md_bg_color: [1, 1, 1, 1]
+            pos_hint: {'center_x': .5 , 'center_y': .5}
+            on_release: root.loginText()
+

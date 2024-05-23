@@ -1,0 +1,21 @@
+<Screen1>:
+    name: "screen1"
+         
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDTopAppBar:
+            title: "Contacts"
+            pos_hint: {"top": 1}
+            elevation: 5
+            left_action_items: [["arrow-left",lambda x: root.back_click()]]
+
+        ScrollView:
+
+            MDList:
+                id: container
+
+    MDFloatingActionButton:
+        icon: 'plus'
+        pos_hint: {'right': .89, 'top': .15}
+        on_release: root.pick_contact()
